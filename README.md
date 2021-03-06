@@ -1,4 +1,5 @@
-Covid BR
+R Code for collecting and plotting Covid-19 data for Brazil and
+brazilian states.
 ================
 Mohammed Kaebi
 
@@ -91,8 +92,8 @@ Mohammed Kaebi
   - [Data source](#data-source)
       - [Data source](#data-source-1)
 
-R Code for collecting and plotting Covid-19 data for Brazil and
-brazilian states.
+*Most part of the code is yet to be commented. It is, however, mostly
+self-explanatory.*
 
 ``` r
 knitr::opts_chunk$set(echo = TRUE)
@@ -224,7 +225,7 @@ g1 <- ggplot(data = dataset) +
   scale_fill_distiller(palette = "Reds",
                        direction = 1)+
   labs(fill = "7DMA of daily new\ncases per 100k",
-       title = paste("7DMA of daily new cases per 100k on", format(today() - 1, "%d-%b")),
+       title = paste("7DMA of daily new cases per\n100k on", format(today() - 1, "%d-%b")),
        caption = "Source: Brazilian Health Ministry*\n*See disclaimer at the end")+
   theme_void()+
   theme(strip.background = element_blank(), legend.position = "bottom")
@@ -246,7 +247,7 @@ g2 <- ggplot(data = dataset) +
   scale_fill_distiller(palette = "Reds",
                        direction = 1)+
   labs(fill = "7DMA of daily new\ndeaths per 100k",
-       title = paste("7DMA of daily new deaths per 100k on", format(today() - 1, "%d-%b")),
+       title = paste("7DMA of daily new deaths per\n100k on", format(today() - 1, "%d-%b")),
        caption = "Source: Brazilian Health Ministry*\n*See disclaimer at the end")+
   theme_void()+
   theme(strip.background = element_blank(), legend.position = "bottom")
@@ -1925,6 +1926,7 @@ grid.arrange(g1, g2, nrow = 1)
 
 Link: <https://github.com/wcota/covid19br>
 
-Disclaimer: Dados do Ministério da Saúde até o dia em que estão
-disponíveis. Para os mais recentes (e que ainda não foram divulgados
-pelo Ministério da Saúde), dados das Secretarias Estaduais de Saúde.
+Disclaimer: Data from the Brazilian Ministry of Health until the day
+they are available. For the most recent (and which have not yet been
+released by the Ministry of Health), data from State Health
+Secretariats.
